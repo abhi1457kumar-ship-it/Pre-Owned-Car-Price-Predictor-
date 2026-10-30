@@ -1,6 +1,7 @@
 # AutoValue AI
 
 AutoValue AI is a Flask web application that estimates used-car selling prices with a trained scikit-learn regression model. The model is trained on the attached Indian used-car dataset (`india_used_cars.csv`), copied into `data/used_cars.csv` without modification.
+This project is a Flask-powered machine learning app that estimates used-car prices in India, with an interactive prediction form and model insights dashboard.
 
 ## Features
 
