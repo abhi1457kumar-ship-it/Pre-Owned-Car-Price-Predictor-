@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Predict Price — AutoValue AI{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Price prediction</p>
+    <h1>Estimate a used car's selling price</h1>
+    <p class="lead">Use the fields supported by the training dataset. The estimate is returned by the saved model, not a lookup table.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% if not model_ready %}
+    <div class="alert-panel">The trained model is not available yet. Run <code>python train_model.py</code> and restart the server.</div>
+    {% endif %}
+    <div class="predict-layout">
+      <form id="predict-form" class="glass-card form-card" novalidate>
+        <div class="form-grid">
+          <label>
+            Brand
+            <select id="brand" name="brand" required></select>
+          </label>
+          <label>
+            Model
+            <select id="model" name="model" required></select>
+          </label>
+          <label class="full">
+            Variant
+            <select id="variant" name="variant" required></select>
+          </label>
+          <label>
+            Manufacturing year
+            <input id="manufacturing_year" name="manufacturing_year" type="number" required>
+          </label>
+          <label>
+            Kilometres driven
+            <input id="km_driven" name="km_driven" type="number" min="0" required>
+          </label>
+          <label>
+            Fuel type
+            <select id="fuel_type" name="fuel_type" required></select>
+          </label>
+          <label>
+            Transmission
+            <select id="transmission" name="transmission" required></select>
+          </label>
+          <label>
+            Previous owners
+            <input id="previous_owners" name="previous_owners" type="number" min="1" required>
+          </label>
+          <label>
+            Engine capacity (cc)
+            <input id="engine_cc" name="engine_cc" type="number" min="1" required>
+          </label>
+          <label>
+            Mileage (km/l)
+            <input id="mileage_kmpl" name="mileage_kmpl" type="number" step="0.1" min="0" required>
+          </label>
+          <label>
+            Vehicle condition
+            <select id="condition" name="condition" required></select>
+          </label>
+          <label>
+            City
+            <select id="city" name="city" required></select>
+          </label>
+        </div>
+        <p id="form-error" class="form-error" hidden></p>
+        <button id="submit-btn" class="btn btn-accent btn-lg w-100" type="submit" {% if not model_ready %}disabled{% endif %}>
+          Estimate selling price
+        </button>
+      </form>
+
+      <aside id="result-panel" class="glass-card result-card" hidden>
+        <p class="eyebrow">Estimated selling price</p>
+        <p id="result-price" class="price-display">₹—</p>
+        <p id="result-range" class="muted"></p>
+        <p id="result-note" class="fine-print"></p>
+        <h2>Submitted specifications</h2>
+        <dl id="result-specs" class="spec-list"></dl>
+        <div class="result-actions">
+          <button type="button" class="btn btn-accent" id="another-btn">Make another prediction</button>
+          <button type="button" class="btn btn-ghost" id="back-btn">Return to form</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}

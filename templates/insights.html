@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Model Insights — AutoValue AI{% endblock %}
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Model insights</p>
+    <h1>Dataset facts and evaluation metrics</h1>
+    <p class="lead">Every figure on this page comes from the attached CSV and the trained model. No placeholder statistics are shown.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div id="insights-error" class="alert-panel" hidden></div>
+    <div class="stat-grid" id="stat-grid"></div>
+    <div class="metrics-panel glass-card" id="metrics-panel"></div>
+    <div class="chart-grid">
+      <div class="glass-card"><h2>Fuel type</h2><canvas id="fuel-chart"></canvas></div>
+      <div class="glass-card"><h2>Transmission</h2><canvas id="transmission-chart"></canvas></div>
+      <div class="glass-card"><h2>Manufacturing year</h2><canvas id="year-chart"></canvas></div>
+      <div class="glass-card"><h2>Selling price bands</h2><canvas id="price-chart"></canvas></div>
+      <div class="glass-card chart-wide"><h2>Feature importance</h2><canvas id="importance-chart"></canvas><p class="fine-print" id="importance-note"></p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/insights.js') }}"></script>
+{% endblock %}

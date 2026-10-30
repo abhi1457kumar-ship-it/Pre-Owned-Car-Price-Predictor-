@@ -1,0 +1,1811 @@
+{
+  "dataset": {
+    "source_file": "data/used_cars.csv",
+    "original_filename": "india_used_cars.csv",
+    "raw_records": 60000,
+    "usable_records": 60000,
+    "columns": [
+      "brand",
+      "model",
+      "variant",
+      "manufacturing_year",
+      "km_driven",
+      "fuel_type",
+      "transmission",
+      "previous_owners",
+      "engine_cc",
+      "mileage_kmpl",
+      "condition",
+      "city",
+      "selling_price"
+    ],
+    "target": "selling_price",
+    "currency": "INR",
+    "duplicates_removed": 0,
+    "missing_values": {
+      "brand": 0,
+      "model": 0,
+      "variant": 0,
+      "manufacturing_year": 0,
+      "km_driven": 0,
+      "fuel_type": 0,
+      "transmission": 0,
+      "previous_owners": 0,
+      "engine_cc": 0,
+      "mileage_kmpl": 0,
+      "condition": 0,
+      "city": 0,
+      "selling_price": 0
+    }
+  },
+  "selected_model": "Gradient Boosting Regressor",
+  "algorithm_notes": {
+    "Linear Regression": "Ordinary least squares with scaled numeric features and one-hot categorical encoding.",
+    "Random Forest Regressor": "Ensemble of decision trees; typically stronger on nonlinear used-car pricing patterns.",
+    "Gradient Boosting Regressor": "sklearn HistGradientBoostingRegressor, a histogram-based gradient boosting model."
+  },
+  "metrics": {
+    "Linear Regression": {
+      "test": {
+        "mae": 124911.65,
+        "rmse": 285030.18,
+        "r2": 0.8866
+      },
+      "cv_r2_mean": 0.8894,
+      "fit_seconds": 6.76
+    },
+    "Random Forest Regressor": {
+      "test": {
+        "mae": 178418.1,
+        "rmse": 339082.18,
+        "r2": 0.8395
+      },
+      "cv_r2_mean": null,
+      "fit_seconds": 1.75
+    },
+    "Gradient Boosting Regressor": {
+      "test": {
+        "mae": 80932.29,
+        "rmse": 153949.93,
+        "r2": 0.9669
+      },
+      "cv_r2_mean": null,
+      "fit_seconds": 5.77
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "engine_cc",
+      "importance": 0.6889786506740366
+    },
+    {
+      "feature": "transmission",
+      "importance": 0.35477913317602594
+    },
+    {
+      "feature": "manufacturing_year",
+      "importance": 0.19723489416518283
+    },
+    {
+      "feature": "brand",
+      "importance": 0.1435134826640063
+    },
+    {
+      "feature": "mileage_kmpl",
+      "importance": 0.08371740344934238
+    },
+    {
+      "feature": "km_driven",
+      "importance": 0.04726995818967028
+    },
+    {
+      "feature": "model",
+      "importance": 0.03574186702389914
+    },
+    {
+      "feature": "variant",
+      "importance": 0.014338334841753175
+    },
+    {
+      "feature": "condition",
+      "importance": 0.008787686785625248
+    },
+    {
+      "feature": "previous_owners",
+      "importance": 0.007759249187150467
+    },
+    {
+      "feature": "fuel_type",
+      "importance": 0.005762885287252328
+    },
+    {
+      "feature": "city",
+      "importance": 0.001357847017012026
+    }
+  ],
+  "feature_importance_method": "Permutation importance on a 2,500-row sample from the test set (3 repeats).",
+  "catalog": {
+    "brands": [
+      "Audi",
+      "BMW",
+      "Chevrolet",
+      "Citroen",
+      "Datsun",
+      "Fiat",
+      "Force Motors",
+      "Ford",
+      "Honda",
+      "Hyundai",
+      "Isuzu",
+      "Jaguar",
+      "Jeep",
+      "Kia",
+      "Land Rover",
+      "Lexus",
+      "MG",
+      "Mahindra",
+      "Maruti Suzuki",
+      "Mercedes-Benz",
+      "Mini",
+      "Nissan",
+      "Porsche",
+      "Renault",
+      "Skoda",
+      "Tata",
+      "Toyota",
+      "Volkswagen",
+      "Volvo"
+    ],
+    "brand_models": {
+      "Audi": [
+        "A4",
+        "A6",
+        "Q3",
+        "Q5",
+        "Q7"
+      ],
+      "BMW": [
+        "3 Series",
+        "5 Series",
+        "X1",
+        "X3",
+        "X5"
+      ],
+      "Chevrolet": [
+        "Aveo",
+        "Beat",
+        "Cruze",
+        "Enjoy",
+        "Sail",
+        "Spark",
+        "Tavera"
+      ],
+      "Citroen": [
+        "C3",
+        "C3 Aircross",
+        "C5 Aircross"
+      ],
+      "Datsun": [
+        "Go",
+        "Go+",
+        "redi-GO"
+      ],
+      "Fiat": [
+        "Avventura",
+        "Linea",
+        "Palio",
+        "Punto"
+      ],
+      "Force Motors": [
+        "Gurkha",
+        "Trax"
+      ],
+      "Ford": [
+        "Aspire",
+        "EcoSport",
+        "Endeavour",
+        "Figo",
+        "Freestyle"
+      ],
+      "Honda": [
+        "Accord",
+        "Amaze",
+        "BR-V",
+        "Brio",
+        "CR-V",
+        "City",
+        "Civic",
+        "Elevate",
+        "Jazz",
+        "Mobilio",
+        "WR-V"
+      ],
+      "Hyundai": [
+        "Accent",
+        "Alcazar",
+        "Aura",
+        "Creta",
+        "Elantra",
+        "Eon",
+        "Exter",
+        "Grand i10",
+        "Grand i10 Nios",
+        "Santro",
+        "Santro Xing",
+        "Tucson",
+        "Venue",
+        "Verna",
+        "Xcent",
+        "i10",
+        "i20"
+      ],
+      "Isuzu": [
+        "D-Max",
+        "MU-X"
+      ],
+      "Jaguar": [
+        "F-Pace",
+        "XE",
+        "XF"
+      ],
+      "Jeep": [
+        "Compass",
+        "Grand Cherokee",
+        "Meridian",
+        "Wrangler"
+      ],
+      "Kia": [
+        "Carens",
+        "Carnival",
+        "Seltos",
+        "Sonet"
+      ],
+      "Land Rover": [
+        "Defender",
+        "Discovery Sport",
+        "Range Rover Evoque",
+        "Range Rover Velar"
+      ],
+      "Lexus": [
+        "ES",
+        "NX",
+        "RX"
+      ],
+      "MG": [
+        "Astor",
+        "Gloster",
+        "Hector",
+        "ZS"
+      ],
+      "Mahindra": [
+        "Alturas G4",
+        "Bolero",
+        "Bolero Neo",
+        "KUV100",
+        "Marazzo",
+        "NuvoSport",
+        "Quanto",
+        "Scorpio Classic",
+        "Scorpio N",
+        "TUV300",
+        "Thar",
+        "Thar Roxx",
+        "Verito",
+        "XUV300",
+        "XUV500",
+        "XUV700",
+        "Xylo"
+      ],
+      "Maruti Suzuki": [
+        "800",
+        "A-Star",
+        "Alto 800",
+        "Alto K10",
+        "Baleno",
+        "Brezza",
+        "Celerio",
+        "Ciaz",
+        "Dzire",
+        "Eeco",
+        "Ertiga",
+        "Fronx",
+        "Grand Vitara",
+        "Gypsy",
+        "Ignis",
+        "Invicto",
+        "Jimny",
+        "Omni",
+        "Ritz",
+        "S-Presso",
+        "SX4",
+        "Swift",
+        "Wagon R",
+        "XL6",
+        "Zen Estilo"
+      ],
+      "Mercedes-Benz": [
+        "A-Class",
+        "C-Class",
+        "E-Class",
+        "GLA",
+        "GLC",
+        "S-Class"
+      ],
+      "Mini": [
+        "Cooper",
+        "Countryman"
+      ],
+      "Nissan": [
+        "Kicks",
+        "Magnite",
+        "Micra",
+        "Sunny",
+        "Terrano"
+      ],
+      "Porsche": [
+        "911",
+        "Cayenne",
+        "Macan"
+      ],
+      "Renault": [
+        "Captur",
+        "Duster",
+        "Kiger",
+        "Kwid",
+        "Lodgy",
+        "Scala",
+        "Triber"
+      ],
+      "Skoda": [
+        "Fabia",
+        "Kodiaq",
+        "Kushaq",
+        "Laura",
+        "Octavia",
+        "Rapid",
+        "Slavia",
+        "Superb"
+      ],
+      "Tata": [
+        "Altroz",
+        "Bolt",
+        "Curvv",
+        "Harrier",
+        "Hexa",
+        "Indica",
+        "Indigo",
+        "Nano",
+        "Nexon",
+        "Punch",
+        "Safari",
+        "Sumo",
+        "Tiago",
+        "Tiago NRG",
+        "Tigor",
+        "Zest"
+      ],
+      "Toyota": [
+        "Camry",
+        "Corolla Altis",
+        "Etios",
+        "Etios Cross",
+        "Etios Liva",
+        "Fortuner",
+        "Glanza",
+        "Hilux",
+        "Innova",
+        "Innova Crysta",
+        "Innova Hycross",
+        "Rumion",
+        "Taisor",
+        "Urban Cruiser",
+        "Urban Cruiser Hyryder",
+        "Vellfire",
+        "Yaris"
+      ],
+      "Volkswagen": [
+        "Ameo",
+        "Jetta",
+        "Passat",
+        "Polo",
+        "Taigun",
+        "Tiguan",
+        "Vento",
+        "Virtus"
+      ],
+      "Volvo": [
+        "S90",
+        "XC40",
+        "XC60"
+      ]
+    },
+    "model_variants": {
+      "Audi||A4": [
+        "35 TDI",
+        "40 TFSI"
+      ],
+      "Audi||A6": [
+        "45 TDI",
+        "45 TFSI"
+      ],
+      "Audi||Q3": [
+        "40 TFSI"
+      ],
+      "Audi||Q5": [
+        "45 TFSI"
+      ],
+      "Audi||Q7": [
+        "55 TFSI"
+      ],
+      "BMW||3 Series": [
+        "320d",
+        "330i"
+      ],
+      "BMW||5 Series": [
+        "520d",
+        "530i"
+      ],
+      "BMW||X1": [
+        "sDrive20d",
+        "sDrive20i"
+      ],
+      "BMW||X3": [
+        "xDrive20d",
+        "xDrive30i"
+      ],
+      "BMW||X5": [
+        "xDrive40i"
+      ],
+      "Chevrolet||Aveo": [
+        "1.4",
+        "1.6"
+      ],
+      "Chevrolet||Beat": [
+        "LS",
+        "LT",
+        "LT Diesel",
+        "LT(O)"
+      ],
+      "Chevrolet||Cruze": [
+        "LT",
+        "LTZ",
+        "LTZ AT"
+      ],
+      "Chevrolet||Enjoy": [
+        "LS",
+        "LT",
+        "LTZ"
+      ],
+      "Chevrolet||Sail": [
+        "LS",
+        "LT",
+        "LT Diesel",
+        "LTZ"
+      ],
+      "Chevrolet||Spark": [
+        "LS",
+        "LT",
+        "LT(O)"
+      ],
+      "Chevrolet||Tavera": [
+        "LS",
+        "LT",
+        "Neo 3"
+      ],
+      "Citroen||C3": [
+        "Feel",
+        "Live",
+        "Shine",
+        "Shine Turbo"
+      ],
+      "Citroen||C3 Aircross": [
+        "Max",
+        "Plus",
+        "You"
+      ],
+      "Citroen||C5 Aircross": [
+        "Feel",
+        "Shine"
+      ],
+      "Datsun||Go": [
+        "A",
+        "D",
+        "T",
+        "T(O)"
+      ],
+      "Datsun||Go+": [
+        "A",
+        "D",
+        "T",
+        "T(O)"
+      ],
+      "Datsun||redi-GO": [
+        "A",
+        "D",
+        "T",
+        "T(O)"
+      ],
+      "Fiat||Avventura": [
+        "Active",
+        "Dynamic",
+        "Dynamic Diesel"
+      ],
+      "Fiat||Linea": [
+        "Active",
+        "Dynamic",
+        "Dynamic Diesel",
+        "Emotion",
+        "T-Jet"
+      ],
+      "Fiat||Palio": [
+        "Stile",
+        "Stile Diesel"
+      ],
+      "Fiat||Punto": [
+        "Active",
+        "Dynamic",
+        "Dynamic Diesel",
+        "Emotion"
+      ],
+      "Force Motors||Gurkha": [
+        "Xplorer 3-Door",
+        "Xplorer 5-Door"
+      ],
+      "Force Motors||Trax": [
+        "Cruiser",
+        "Toofan"
+      ],
+      "Ford||Aspire": [
+        "Ambiente",
+        "Titanium",
+        "Titanium Diesel",
+        "Titanium+",
+        "Trend"
+      ],
+      "Ford||EcoSport": [
+        "Ambiente",
+        "Titanium",
+        "Titanium AT",
+        "Titanium Diesel",
+        "Titanium+",
+        "Trend"
+      ],
+      "Ford||Endeavour": [
+        "Titanium",
+        "Titanium+ 3.2",
+        "Trend"
+      ],
+      "Ford||Figo": [
+        "Ambiente",
+        "Titanium",
+        "Titanium AT",
+        "Titanium Diesel",
+        "Titanium+",
+        "Trend"
+      ],
+      "Ford||Freestyle": [
+        "Ambiente",
+        "Titanium",
+        "Titanium Diesel",
+        "Trend"
+      ],
+      "Honda||Accord": [
+        "2.4 VTi-L",
+        "3.5 V6"
+      ],
+      "Honda||Amaze": [
+        "E",
+        "S",
+        "S CVT",
+        "VX",
+        "VX Diesel",
+        "ZX"
+      ],
+      "Honda||BR-V": [
+        "S",
+        "V",
+        "VX",
+        "VX Diesel"
+      ],
+      "Honda||Brio": [
+        "E",
+        "S",
+        "V",
+        "VX",
+        "VX AT"
+      ],
+      "Honda||CR-V": [
+        "V",
+        "VX",
+        "VX Diesel"
+      ],
+      "Honda||City": [
+        "SV",
+        "V",
+        "VX",
+        "VX CVT",
+        "ZX",
+        "ZX Hybrid"
+      ],
+      "Honda||Civic": [
+        "V",
+        "VX",
+        "VX Diesel",
+        "ZX"
+      ],
+      "Honda||Elevate": [
+        "SV",
+        "V",
+        "V CVT",
+        "VX",
+        "ZX",
+        "ZX CVT"
+      ],
+      "Honda||Jazz": [
+        "V",
+        "V CVT",
+        "VX",
+        "VX Diesel",
+        "ZX"
+      ],
+      "Honda||Mobilio": [
+        "E",
+        "S",
+        "V",
+        "V Diesel"
+      ],
+      "Honda||WR-V": [
+        "S",
+        "VX",
+        "VX Diesel"
+      ],
+      "Hyundai||Accent": [
+        "CRDi",
+        "GLE",
+        "GLS"
+      ],
+      "Hyundai||Alcazar": [
+        "Platinum",
+        "Platinum DCT",
+        "Prestige",
+        "Prestige Diesel",
+        "Signature",
+        "Signature Diesel"
+      ],
+      "Hyundai||Aura": [
+        "E",
+        "S",
+        "S AMT",
+        "S CNG",
+        "S(O)",
+        "SX",
+        "SX(O)"
+      ],
+      "Hyundai||Creta": [
+        "E",
+        "EX",
+        "S",
+        "S(O)",
+        "SX",
+        "SX Diesel",
+        "SX Turbo DCT",
+        "SX(O)",
+        "SX(O) Diesel"
+      ],
+      "Hyundai||Elantra": [
+        "S",
+        "SX",
+        "SX Diesel",
+        "SX(O)"
+      ],
+      "Hyundai||Eon": [
+        "D-Lite",
+        "Era+",
+        "Magna+",
+        "Sportz"
+      ],
+      "Hyundai||Exter": [
+        "EX",
+        "S",
+        "S AMT",
+        "S CNG",
+        "SX",
+        "SX(O)"
+      ],
+      "Hyundai||Grand i10": [
+        "Asta",
+        "Era",
+        "Magna",
+        "Magna Diesel",
+        "Sportz",
+        "Sportz Diesel"
+      ],
+      "Hyundai||Grand i10 Nios": [
+        "Asta",
+        "Era",
+        "Magna",
+        "Magna CNG",
+        "Sportz",
+        "Sportz AMT"
+      ],
+      "Hyundai||Santro": [
+        "Asta",
+        "Era",
+        "Magna",
+        "Magna AMT",
+        "Magna CNG",
+        "Sportz"
+      ],
+      "Hyundai||Santro Xing": [
+        "GL",
+        "GLS",
+        "GLS CNG"
+      ],
+      "Hyundai||Tucson": [
+        "Platinum",
+        "Platinum Diesel",
+        "Signature",
+        "Signature Diesel"
+      ],
+      "Hyundai||Venue": [
+        "E",
+        "S",
+        "S Diesel",
+        "S Turbo",
+        "S(O)",
+        "SX",
+        "SX Turbo DCT",
+        "SX(O)",
+        "SX(O) Diesel"
+      ],
+      "Hyundai||Verna": [
+        "EX",
+        "S",
+        "SX",
+        "SX Diesel",
+        "SX Turbo",
+        "SX(O)"
+      ],
+      "Hyundai||Xcent": [
+        "E",
+        "S",
+        "S Diesel",
+        "SX",
+        "SX Diesel",
+        "SX(O)"
+      ],
+      "Hyundai||i10": [
+        "Asta",
+        "Era",
+        "Magna",
+        "Magna AT",
+        "Sportz"
+      ],
+      "Hyundai||i20": [
+        "Asta",
+        "Asta Diesel",
+        "Asta(O)",
+        "Magna",
+        "Sportz",
+        "Sportz CVT"
+      ],
+      "Isuzu||D-Max": [
+        "Hi-Lander",
+        "V-Cross",
+        "V-Cross Z"
+      ],
+      "Isuzu||MU-X": [
+        "4x2",
+        "4x4"
+      ],
+      "Jaguar||F-Pace": [
+        "Prestige"
+      ],
+      "Jaguar||XE": [
+        "Pure"
+      ],
+      "Jaguar||XF": [
+        "Portfolio"
+      ],
+      "Jeep||Compass": [
+        "Limited",
+        "Limited 4x4 Diesel",
+        "Limited Diesel",
+        "Longitude",
+        "Model S",
+        "Sport"
+      ],
+      "Jeep||Grand Cherokee": [
+        "Limited"
+      ],
+      "Jeep||Meridian": [
+        "Limited",
+        "Limited+",
+        "Overland"
+      ],
+      "Jeep||Wrangler": [
+        "Rubicon",
+        "Unlimited"
+      ],
+      "Kia||Carens": [
+        "Luxury Diesel",
+        "Luxury+",
+        "Premium",
+        "Prestige",
+        "Prestige DCT",
+        "Prestige+"
+      ],
+      "Kia||Carnival": [
+        "Limousine",
+        "Premium",
+        "Prestige"
+      ],
+      "Kia||Seltos": [
+        "GTX+",
+        "HTE",
+        "HTK",
+        "HTX",
+        "HTX Diesel",
+        "HTX Turbo DCT",
+        "HTX+"
+      ],
+      "Kia||Sonet": [
+        "GTX+",
+        "HTE",
+        "HTK",
+        "HTX",
+        "HTX Diesel",
+        "HTX Turbo DCT",
+        "HTX+"
+      ],
+      "Land Rover||Defender": [
+        "110 SE"
+      ],
+      "Land Rover||Discovery Sport": [
+        "SE"
+      ],
+      "Land Rover||Range Rover Evoque": [
+        "SE"
+      ],
+      "Land Rover||Range Rover Velar": [
+        "R-Dynamic SE"
+      ],
+      "Lexus||ES": [
+        "ES 250"
+      ],
+      "Lexus||NX": [
+        "NX 350h"
+      ],
+      "Lexus||RX": [
+        "RX 450h"
+      ],
+      "MG||Astor": [
+        "Sharp",
+        "Sharp Turbo CVT",
+        "Smart",
+        "Style",
+        "Super"
+      ],
+      "MG||Gloster": [
+        "Sharp",
+        "Smart",
+        "Super"
+      ],
+      "MG||Hector": [
+        "Savvy",
+        "Sharp",
+        "Smart",
+        "Smart Diesel",
+        "Style",
+        "Super"
+      ],
+      "MG||ZS": [
+        "Excite",
+        "Exclusive",
+        "Sharp"
+      ],
+      "Mahindra||Alturas G4": [
+        "G2",
+        "G4"
+      ],
+      "Mahindra||Bolero": [
+        "B2",
+        "B4",
+        "B6",
+        "B6(O)",
+        "DI SLX"
+      ],
+      "Mahindra||Bolero Neo": [
+        "N10",
+        "N10(O)",
+        "N4",
+        "N8",
+        "N8 AMT"
+      ],
+      "Mahindra||KUV100": [
+        "K2",
+        "K4",
+        "K6",
+        "K8",
+        "K8 Diesel"
+      ],
+      "Mahindra||Marazzo": [
+        "M2",
+        "M4",
+        "M6",
+        "M6 AMT",
+        "M8"
+      ],
+      "Mahindra||NuvoSport": [
+        "N4",
+        "N6",
+        "N8"
+      ],
+      "Mahindra||Quanto": [
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "Mahindra||Scorpio Classic": [
+        "S11",
+        "S3",
+        "S5",
+        "S7",
+        "SLE 2.5"
+      ],
+      "Mahindra||Scorpio N": [
+        "Z2",
+        "Z4",
+        "Z6",
+        "Z8",
+        "Z8 Diesel AT",
+        "Z8L"
+      ],
+      "Mahindra||TUV300": [
+        "T10",
+        "T4",
+        "T6",
+        "T6 AMT",
+        "T8"
+      ],
+      "Mahindra||Thar": [
+        "AX",
+        "AX(O)",
+        "CRDe",
+        "LX",
+        "LX Diesel AT"
+      ],
+      "Mahindra||Thar Roxx": [
+        "AX5L",
+        "AX7L AT",
+        "MX1",
+        "MX3",
+        "MX5"
+      ],
+      "Mahindra||Verito": [
+        "D6 Diesel",
+        "G2",
+        "G4",
+        "G8"
+      ],
+      "Mahindra||XUV300": [
+        "W4",
+        "W6",
+        "W6 AMT",
+        "W8",
+        "W8(O)",
+        "W8(O) Diesel"
+      ],
+      "Mahindra||XUV500": [
+        "W10",
+        "W10 AT",
+        "W4",
+        "W6",
+        "W8",
+        "W8 AT"
+      ],
+      "Mahindra||XUV700": [
+        "AX3",
+        "AX5",
+        "AX5 Diesel AT",
+        "AX7",
+        "AX7L",
+        "MX"
+      ],
+      "Mahindra||Xylo": [
+        "D2",
+        "D4",
+        "H4",
+        "H8"
+      ],
+      "Maruti Suzuki||800": [
+        "AC",
+        "LPG",
+        "Std"
+      ],
+      "Maruti Suzuki||A-Star": [
+        "LXi",
+        "VXi",
+        "ZXi"
+      ],
+      "Maruti Suzuki||Alto 800": [
+        "LXi",
+        "LXi CNG",
+        "Std",
+        "VXi",
+        "VXi CNG",
+        "VXi+"
+      ],
+      "Maruti Suzuki||Alto K10": [
+        "LXi",
+        "Std",
+        "VXi",
+        "VXi AMT",
+        "VXi CNG",
+        "VXi+"
+      ],
+      "Maruti Suzuki||Baleno": [
+        "Alpha",
+        "Delta",
+        "Delta CNG",
+        "Sigma",
+        "Zeta",
+        "Zeta AMT"
+      ],
+      "Maruti Suzuki||Brezza": [
+        "LXi",
+        "VXi",
+        "VXi CNG",
+        "ZXi",
+        "ZXi AT",
+        "ZXi+"
+      ],
+      "Maruti Suzuki||Celerio": [
+        "VXi",
+        "VXi CNG",
+        "ZXi",
+        "ZXi AMT",
+        "ZXi+"
+      ],
+      "Maruti Suzuki||Ciaz": [
+        "Alpha",
+        "Alpha AT",
+        "Delta",
+        "Sigma",
+        "Zeta"
+      ],
+      "Maruti Suzuki||Dzire": [
+        "LXi",
+        "VXi",
+        "VXi AMT",
+        "VXi CNG",
+        "ZXi",
+        "ZXi+"
+      ],
+      "Maruti Suzuki||Eeco": [
+        "Std 5-Seater",
+        "Std 7-Seater",
+        "Std CNG",
+        "Tour"
+      ],
+      "Maruti Suzuki||Ertiga": [
+        "LXi",
+        "VXi",
+        "VXi CNG",
+        "ZXi",
+        "ZXi AT",
+        "ZXi+"
+      ],
+      "Maruti Suzuki||Fronx": [
+        "Alpha",
+        "Delta",
+        "Delta CNG",
+        "Sigma",
+        "Zeta",
+        "Zeta Turbo"
+      ],
+      "Maruti Suzuki||Grand Vitara": [
+        "Alpha Hybrid",
+        "Delta",
+        "Delta CNG",
+        "Sigma",
+        "Zeta",
+        "Zeta Hybrid"
+      ],
+      "Maruti Suzuki||Gypsy": [
+        "King",
+        "King Hard Top"
+      ],
+      "Maruti Suzuki||Ignis": [
+        "Alpha",
+        "Delta",
+        "Delta CNG",
+        "Sigma",
+        "Zeta",
+        "Zeta AMT"
+      ],
+      "Maruti Suzuki||Invicto": [
+        "Alpha+",
+        "Zeta+"
+      ],
+      "Maruti Suzuki||Jimny": [
+        "Alpha",
+        "Alpha AT",
+        "Zeta",
+        "Zeta AT"
+      ],
+      "Maruti Suzuki||Omni": [
+        "LPG",
+        "Std"
+      ],
+      "Maruti Suzuki||Ritz": [
+        "LXi",
+        "VDi",
+        "VXi",
+        "ZXi"
+      ],
+      "Maruti Suzuki||S-Presso": [
+        "LXi",
+        "Std",
+        "VXi",
+        "VXi AMT",
+        "VXi CNG",
+        "VXi+"
+      ],
+      "Maruti Suzuki||SX4": [
+        "VDi",
+        "VXi",
+        "ZXi"
+      ],
+      "Maruti Suzuki||Swift": [
+        "LXi",
+        "VXi",
+        "VXi AMT",
+        "VXi CNG",
+        "ZXi",
+        "ZXi+"
+      ],
+      "Maruti Suzuki||Wagon R": [
+        "LXi 1.0",
+        "VXi 1.0",
+        "VXi AMT",
+        "VXi CNG",
+        "ZXi 1.2",
+        "ZXi+ 1.2"
+      ],
+      "Maruti Suzuki||XL6": [
+        "Alpha",
+        "Alpha+",
+        "Zeta",
+        "Zeta AT",
+        "Zeta CNG"
+      ],
+      "Maruti Suzuki||Zen Estilo": [
+        "LXi",
+        "VXi",
+        "VXi LPG"
+      ],
+      "Mercedes-Benz||A-Class": [
+        "A 200",
+        "A 200 d"
+      ],
+      "Mercedes-Benz||C-Class": [
+        "C 200",
+        "C 220 d",
+        "C 300"
+      ],
+      "Mercedes-Benz||E-Class": [
+        "E 200",
+        "E 220 d",
+        "E 350 d"
+      ],
+      "Mercedes-Benz||GLA": [
+        "GLA 200",
+        "GLA 220 d"
+      ],
+      "Mercedes-Benz||GLC": [
+        "GLC 200",
+        "GLC 220 d"
+      ],
+      "Mercedes-Benz||S-Class": [
+        "S 350 d",
+        "S 450 4MATIC"
+      ],
+      "Mini||Cooper": [
+        "3-Door Cooper"
+      ],
+      "Mini||Countryman": [
+        "Cooper S"
+      ],
+      "Nissan||Kicks": [
+        "XL",
+        "XV",
+        "XV Diesel"
+      ],
+      "Nissan||Magnite": [
+        "XE",
+        "XL",
+        "XV",
+        "XV Premium",
+        "XV Premium CVT",
+        "XV Turbo"
+      ],
+      "Nissan||Micra": [
+        "XE",
+        "XL",
+        "XL Diesel",
+        "XV"
+      ],
+      "Nissan||Sunny": [
+        "XE",
+        "XL",
+        "XL Diesel",
+        "XV"
+      ],
+      "Nissan||Terrano": [
+        "XE",
+        "XL",
+        "XL Diesel",
+        "XV"
+      ],
+      "Porsche||911": [
+        "Carrera"
+      ],
+      "Porsche||Cayenne": [
+        "Base"
+      ],
+      "Porsche||Macan": [
+        "Base"
+      ],
+      "Renault||Captur": [
+        "RxE",
+        "RxL",
+        "RxT",
+        "RxZ Diesel"
+      ],
+      "Renault||Duster": [
+        "RXE",
+        "RXL",
+        "RXL Diesel",
+        "RXT",
+        "RXZ",
+        "RXZ CVT"
+      ],
+      "Renault||Kiger": [
+        "RXE",
+        "RXL",
+        "RXT",
+        "RXT Turbo",
+        "RXZ",
+        "RXZ CVT"
+      ],
+      "Renault||Kwid": [
+        "Climber",
+        "RXE",
+        "RXL",
+        "RXT",
+        "RXT AMT",
+        "Std"
+      ],
+      "Renault||Lodgy": [
+        "RxE",
+        "RxL",
+        "RxZ Diesel",
+        "Std"
+      ],
+      "Renault||Scala": [
+        "RxE",
+        "RxL",
+        "RxZ Diesel"
+      ],
+      "Renault||Triber": [
+        "RXE",
+        "RXL",
+        "RXT",
+        "RXT AMT",
+        "RXZ"
+      ],
+      "Skoda||Fabia": [
+        "Active",
+        "Ambition",
+        "Ambition Diesel",
+        "Elegance"
+      ],
+      "Skoda||Kodiaq": [
+        "Laurin & Klement",
+        "Sportline",
+        "Style"
+      ],
+      "Skoda||Kushaq": [
+        "Active",
+        "Ambition",
+        "Monte Carlo",
+        "Style",
+        "Style 1.5 TSI"
+      ],
+      "Skoda||Laura": [
+        "Ambiente",
+        "Ambiente Diesel",
+        "Elegance"
+      ],
+      "Skoda||Octavia": [
+        "Active",
+        "Ambition",
+        "RS 245",
+        "Style"
+      ],
+      "Skoda||Rapid": [
+        "Active",
+        "Ambition",
+        "Ambition Diesel",
+        "Style",
+        "TSI DSG"
+      ],
+      "Skoda||Slavia": [
+        "Active",
+        "Ambition",
+        "Monte Carlo",
+        "Style",
+        "Style 1.5 TSI"
+      ],
+      "Skoda||Superb": [
+        "Ambition",
+        "Laurin & Klement",
+        "Style"
+      ],
+      "Tata||Altroz": [
+        "XE",
+        "XM",
+        "XT",
+        "XT CNG",
+        "XT Diesel",
+        "XZ",
+        "XZ DCA",
+        "XZ+ Lux"
+      ],
+      "Tata||Bolt": [
+        "XE",
+        "XM",
+        "XT",
+        "XT Diesel",
+        "XZ"
+      ],
+      "Tata||Curvv": [
+        "Accomplished",
+        "Accomplished DCA",
+        "Creative",
+        "Creative Diesel",
+        "Pure",
+        "Smart"
+      ],
+      "Tata||Harrier": [
+        "XE",
+        "XM",
+        "XT",
+        "XZ",
+        "XZ+ ADAS",
+        "XZA AT"
+      ],
+      "Tata||Hexa": [
+        "XE",
+        "XM",
+        "XT",
+        "XZ",
+        "XZA AT"
+      ],
+      "Tata||Indica": [
+        "LE",
+        "LS",
+        "LX",
+        "VX",
+        "eV2 Diesel"
+      ],
+      "Tata||Indigo": [
+        "LS",
+        "LX",
+        "eLS Diesel"
+      ],
+      "Tata||Nano": [
+        "CX",
+        "LX",
+        "Std",
+        "XM",
+        "XT"
+      ],
+      "Tata||Nexon": [
+        "Creative DCA",
+        "XE",
+        "XM",
+        "XZ",
+        "XZ Diesel",
+        "XZ+ Lux"
+      ],
+      "Tata||Punch": [
+        "Accomplished",
+        "Adventure",
+        "Adventure AMT",
+        "Adventure CNG",
+        "Creative",
+        "Pure"
+      ],
+      "Tata||Safari": [
+        "XE",
+        "XM",
+        "XT",
+        "XZ",
+        "XZ+ ADAS",
+        "XZA AT"
+      ],
+      "Tata||Sumo": [
+        "GX",
+        "Gold",
+        "Grande"
+      ],
+      "Tata||Tiago": [
+        "XE",
+        "XM",
+        "XT",
+        "XT CNG",
+        "XTA AMT",
+        "XZ",
+        "XZ+"
+      ],
+      "Tata||Tiago NRG": [
+        "XT",
+        "XZ",
+        "XZA AMT"
+      ],
+      "Tata||Tigor": [
+        "XE",
+        "XM",
+        "XT",
+        "XT CNG",
+        "XZ",
+        "XZ+"
+      ],
+      "Tata||Zest": [
+        "XE",
+        "XM",
+        "XT",
+        "XT Diesel",
+        "XZ"
+      ],
+      "Toyota||Camry": [
+        "2.5 G",
+        "Hybrid"
+      ],
+      "Toyota||Corolla Altis": [
+        "G",
+        "G Diesel",
+        "J",
+        "VL"
+      ],
+      "Toyota||Etios": [
+        "G",
+        "GD Diesel",
+        "V",
+        "VD Diesel",
+        "VX"
+      ],
+      "Toyota||Etios Cross": [
+        "G",
+        "V",
+        "VD Diesel"
+      ],
+      "Toyota||Etios Liva": [
+        "G",
+        "GD Diesel",
+        "V",
+        "VX"
+      ],
+      "Toyota||Fortuner": [
+        "4x2 AT",
+        "4x2 MT",
+        "4x4 AT",
+        "GR-S",
+        "Legender 4x4"
+      ],
+      "Toyota||Glanza": [
+        "E",
+        "G",
+        "G AMT",
+        "S",
+        "S CNG",
+        "V"
+      ],
+      "Toyota||Hilux": [
+        "4x2",
+        "4x4",
+        "4x4 AT"
+      ],
+      "Toyota||Innova": [
+        "G",
+        "GX",
+        "GX Diesel",
+        "V",
+        "VX Diesel"
+      ],
+      "Toyota||Innova Crysta": [
+        "GX",
+        "GX AT",
+        "VX",
+        "ZX",
+        "ZX AT 2.8"
+      ],
+      "Toyota||Innova Hycross": [
+        "GX",
+        "GX Petrol",
+        "VX",
+        "ZX",
+        "ZX(O)"
+      ],
+      "Toyota||Rumion": [
+        "G",
+        "G CNG",
+        "S",
+        "V"
+      ],
+      "Toyota||Taisor": [
+        "E",
+        "G",
+        "G Turbo",
+        "S",
+        "V"
+      ],
+      "Toyota||Urban Cruiser": [
+        "High",
+        "High AT",
+        "Mid",
+        "Premium"
+      ],
+      "Toyota||Urban Cruiser Hyryder": [
+        "E",
+        "G",
+        "S",
+        "S Hybrid",
+        "V",
+        "V Hybrid"
+      ],
+      "Toyota||Vellfire": [
+        "Executive Lounge"
+      ],
+      "Toyota||Yaris": [
+        "G",
+        "J",
+        "V",
+        "VX CVT"
+      ],
+      "Volkswagen||Ameo": [
+        "Comfortline",
+        "Highline",
+        "Highline Diesel",
+        "Trendline"
+      ],
+      "Volkswagen||Jetta": [
+        "Comfortline",
+        "Comfortline Diesel",
+        "Highline",
+        "Trendline"
+      ],
+      "Volkswagen||Passat": [
+        "Comfortline",
+        "Highline"
+      ],
+      "Volkswagen||Polo": [
+        "Comfortline",
+        "Comfortline Diesel",
+        "GT TSI",
+        "Highline",
+        "Trendline"
+      ],
+      "Volkswagen||Taigun": [
+        "Comfortline",
+        "GT Plus",
+        "GT Plus DSG",
+        "Highline",
+        "Topline",
+        "Trendline"
+      ],
+      "Volkswagen||Tiguan": [
+        "Comfortline",
+        "Elegance",
+        "Highline"
+      ],
+      "Volkswagen||Vento": [
+        "Comfortline",
+        "Highline",
+        "Highline Diesel",
+        "TSI DSG",
+        "Trendline"
+      ],
+      "Volkswagen||Virtus": [
+        "Comfortline",
+        "GT Plus",
+        "GT Plus DSG",
+        "Highline",
+        "Topline"
+      ],
+      "Volvo||S90": [
+        "B5 Inscription"
+      ],
+      "Volvo||XC40": [
+        "B4 Ultimate"
+      ],
+      "Volvo||XC60": [
+        "B5 Inscription"
+      ]
+    },
+    "fuel_types": [
+      "CNG",
+      "Diesel",
+      "Hybrid",
+      "Petrol"
+    ],
+    "transmissions": [
+      "Automatic",
+      "Manual"
+    ],
+    "conditions": [
+      "Excellent",
+      "Fair",
+      "Good",
+      "Poor"
+    ],
+    "cities": [
+      "Agra",
+      "Ahmedabad",
+      "Bengaluru",
+      "Bhopal",
+      "Bhubaneswar",
+      "Chandigarh",
+      "Chennai",
+      "Coimbatore",
+      "Dehradun",
+      "Guwahati",
+      "Hyderabad",
+      "Indore",
+      "Jaipur",
+      "Jodhpur",
+      "Kochi",
+      "Kolkata",
+      "Lucknow",
+      "Ludhiana",
+      "Mumbai",
+      "Mysuru",
+      "Nagpur",
+      "Nashik",
+      "New Delhi",
+      "Patna",
+      "Pune",
+      "Raipur",
+      "Surat",
+      "Thiruvananthapuram",
+      "Vadodara",
+      "Visakhapatnam"
+    ],
+    "numeric_bounds": {
+      "manufacturing_year": {
+        "min": 2010.0,
+        "max": 2025.0,
+        "median": 2020.0
+      },
+      "km_driven": {
+        "min": 2500.0,
+        "max": 300000.0,
+        "median": 63200.0
+      },
+      "previous_owners": {
+        "min": 1.0,
+        "max": 4.0,
+        "median": 2.0
+      },
+      "engine_cc": {
+        "min": 624.0,
+        "max": 3471.0,
+        "median": 1199.0
+      },
+      "mileage_kmpl": {
+        "min": 10.0,
+        "max": 34.4,
+        "median": 19.4
+      },
+      "selling_price": {
+        "min": 25000.0,
+        "max": 19400000.0,
+        "median": 524000.0
+      }
+    },
+    "record_count": 60000,
+    "brand_count": 29,
+    "model_count": 203,
+    "city_count": 30
+  },
+  "distributions": {
+    "fuel_type": {
+      "Petrol": 43214,
+      "Diesel": 11735,
+      "CNG": 4189,
+      "Hybrid": 862
+    },
+    "transmission": {
+      "Manual": 49317,
+      "Automatic": 10683
+    },
+    "condition": {
+      "Good": 26649,
+      "Fair": 16428,
+      "Excellent": 10351,
+      "Poor": 6572
+    },
+    "brand": {
+      "Maruti Suzuki": 17207,
+      "Hyundai": 10368,
+      "Tata": 6947,
+      "Mahindra": 5700,
+      "Toyota": 3555,
+      "Honda": 3334,
+      "Volkswagen": 1762,
+      "Kia": 1709,
+      "Renault": 1621,
+      "Ford": 1237,
+      "Skoda": 1141,
+      "Chevrolet": 813
+    },
+    "city": {
+      "New Delhi": 7227,
+      "Mumbai": 7197,
+      "Bengaluru": 6547,
+      "Hyderabad": 4461,
+      "Chennai": 4232,
+      "Pune": 4080,
+      "Kolkata": 2592,
+      "Ahmedabad": 2559,
+      "Jaipur": 2104,
+      "Surat": 1535,
+      "Lucknow": 1523,
+      "Chandigarh": 1523
+    },
+    "manufacturing_year": {
+      "2010": 1977,
+      "2011": 2155,
+      "2012": 2262,
+      "2013": 2528,
+      "2014": 2690,
+      "2015": 2867,
+      "2016": 3275,
+      "2017": 3822,
+      "2018": 3706,
+      "2019": 4392,
+      "2020": 4305,
+      "2021": 4644,
+      "2022": 5340,
+      "2023": 5348,
+      "2024": 5340,
+      "2025": 5349
+    },
+    "selling_price_bins": {
+      "Under \u20b92L": 7675,
+      "\u20b92\u20134L": 14318,
+      "\u20b94\u20136L": 12327,
+      "\u20b96\u20138L": 8692,
+      "\u20b98\u201310L": 4971,
+      "\u20b910\u201315L": 6711,
+      "\u20b915\u201325L": 3487,
+      "\u20b925\u201350L": 1353,
+      "\u20b950L+": 466
+    },
+    "price_summary": {
+      "min": 25000.0,
+      "median": 524000.0,
+      "mean": 737235.45,
+      "max": 19400000.0
+    }
+  },
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "train_records": 48000,
+    "test_records": 12000
+  },
+  "training_seconds": 20.98
+}

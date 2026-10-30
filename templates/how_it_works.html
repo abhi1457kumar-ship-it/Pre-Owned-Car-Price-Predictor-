@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}How It Works — AutoValue AI{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Process</p>
+    <h1>How AutoValue AI estimates a price</h1>
+    <p class="lead">The application applies a fitted preprocessing pipeline and a saved regression model. It does not retrain on every prediction.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container row g-4">
+    <div class="col-md-6">
+      <article class="glass-card step-card">
+        <div class="step-index">01</div>
+        <h3>Enter available car specifications</h3>
+        <p>Dropdowns are filled from values observed in the training dataset. Brand, model, and variant stay linked so unsupported combinations are harder to submit.</p>
+      </article>
+    </div>
+    <div class="col-md-6">
+      <article class="glass-card step-card">
+        <div class="step-index">02</div>
+        <h3>The application preprocesses the inputs</h3>
+        <p>Numeric fields are scaled with the training scaler. Categorical fields are one-hot encoded with the categories learned during training. Unknown categories are ignored rather than crashing the request.</p>
+      </article>
+    </div>
+    <div class="col-md-6">
+      <article class="glass-card step-card">
+        <div class="step-index">03</div>
+        <h3>The trained model estimates the price</h3>
+        <p>Linear Regression, Random Forest, and histogram-based Gradient Boosting were compared on a held-out test set. The selected model is stored with Joblib and loaded at inference time.</p>
+      </article>
+    </div>
+    <div class="col-md-6">
+      <article class="glass-card step-card">
+        <div class="step-index">04</div>
+        <h3>The result is displayed</h3>
+        <p>The estimated selling price is formatted in Indian rupees. An optional range uses test-set mean absolute error as a practical spread, not a confidence interval.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

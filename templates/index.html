@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}AutoValue AI — Used Car Price Prediction{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Indian used-car market intelligence</p>
+      <h1>Know Your Car's Worth. Make Smarter Decisions.</h1>
+      <p class="lead">AutoValue AI estimates used-car selling prices with a trained machine-learning model built on historical vehicle listings. Enter the specifications you have, and receive a data-driven estimate in Indian rupees.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent btn-lg" href="{{ url_for('predict_page') }}">Predict Car Price</a>
+        <a class="btn btn-ghost btn-lg" href="{{ url_for('how_it_works') }}">How It Works</a>
+      </div>
+      <p class="fine-print">Estimates depend on dataset quality and the vehicle features available in the training data. They are not guaranteed market prices.</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="gauge-card">
+        <div class="gauge-ring">
+          <span>INR</span>
+          <strong>Estimate</strong>
+        </div>
+        <ul>
+          <li><i data-lucide="cpu"></i> Trained regression model</li>
+          <li><i data-lucide="database"></i> Historical listing data</li>
+          <li><i data-lucide="shield-check"></i> Transparent limitations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">How it works</p>
+      <h2>Four steps from specs to estimate</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-3">
+        <article class="glass-card step-card">
+          <div class="step-index">01</div>
+          <h3>Enter specifications</h3>
+          <p>Provide brand, model, year, kilometres, fuel, and the other fields supported by the dataset.</p>
+        </article>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <article class="glass-card step-card">
+          <div class="step-index">02</div>
+          <h3>Preprocess inputs</h3>
+          <p>The same cleaning and encoding pipeline used in training is applied to every new request.</p>
+        </article>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <article class="glass-card step-card">
+          <div class="step-index">03</div>
+          <h3>Model estimate</h3>
+          <p>A saved regression model produces a selling-price prediction without retraining on each request.</p>
+        </article>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <article class="glass-card step-card">
+          <div class="step-index">04</div>
+          <h3>Review the result</h3>
+          <p>See the estimate in rupees, a specification summary, and a reminder that the figure is approximate.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container split">
+    <div>
+      <p class="eyebrow">Why it exists</p>
+      <h2>A practical estimate before you negotiate</h2>
+      <p>Buyers and sellers often start with incomplete pricing context. AutoValue AI turns structured listing history into a single estimate you can compare against asking prices.</p>
+    </div>
+    <div class="glass-card">
+      <p>The model only uses features present in the attached dataset. It does not invent missing vehicle attributes, and it will not return a hardcoded price.</p>
+      <a class="text-link" href="{{ url_for('about') }}">Read the project approach</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

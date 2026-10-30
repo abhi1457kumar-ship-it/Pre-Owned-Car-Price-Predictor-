@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}About — AutoValue AI{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">About</p>
+    <h1>Data-driven estimates with explicit limits</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container about-stack">
+    <article class="glass-card">
+      <h2>Purpose</h2>
+      <p>AutoValue AI helps people form a first view of a used car's likely selling price using historical listings from the attached Indian used-car dataset. It is a decision-support tool, not a certified valuation service.</p>
+    </article>
+    <article class="glass-card">
+      <h2>Data-driven approach</h2>
+      <p>The application trains regression models on the CSV you provided. Feature fields in the form match columns that actually exist: brand, model, variant, manufacturing year, kilometres driven, fuel type, transmission, previous owners, engine capacity, mileage, condition, and city. The target is selling price in Indian rupees.</p>
+    </article>
+    <article class="glass-card">
+      <h2>Limitations</h2>
+      <ul class="plain-list">
+        <li>Listings do not capture accident history, service records, insurance, or negotiation outcomes.</li>
+        <li>Luxury and mass-market cars sit in the same model, so residuals can be large on uncommon vehicles.</li>
+        <li>A 2025 manufacturing year appears in the source file; treat future-dated rows as part of the given data, not as a live market feed.</li>
+        <li>The estimate is not an official appraisal and should not be the only input to a purchase or sale.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+{% endblock %}
